@@ -77,4 +77,27 @@ public class CityList {
     public int countCities() {
         return cities.size();
     }
+
+    /**
+     * Edit the city provided with the information of the newCity
+     * @param city
+     * @param newCity
+     */
+    public void editCity(City city, City newCity) {
+        if (!hasCity(city)) {
+            throw new IllegalArgumentException();
+        }
+
+        for (City c : cities) {
+            if (c.compareTo(city) == 0){
+                // get new city and province name
+                String newCityName = newCity.getCityName();
+                String newProvinceName = newCity.getProvinceName();
+                // set new city and province name
+                city.setCityName(newCityName);
+                city.setProvinceName(newProvinceName);
+                break;
+            }
+        }
+    }
 }
