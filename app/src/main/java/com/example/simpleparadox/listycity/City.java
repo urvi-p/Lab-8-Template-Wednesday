@@ -13,8 +13,16 @@ public class City implements Comparable<City>{
         return this.city;
     }
 
+    public void setCityName(String city) {
+        this.city = city;
+    }
+
     String getProvinceName(){
         return this.province;
+    }
+
+    public void setProvinceName(String province) {
+        this.province = province;
     }
 
     @Override

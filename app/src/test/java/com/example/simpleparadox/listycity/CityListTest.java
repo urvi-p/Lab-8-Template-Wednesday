@@ -93,4 +93,28 @@ class CityListTest {
 
         assertEquals(1, cityList.countCities());
     }
+
+    @Test
+    void testEditCity() {
+        CityList cityList = mockCityList();
+
+        // add a city
+        City city = new City("Ottawa", "Ontario");
+        cityList.add(city);
+
+        // new information for city
+        City newCity = new City("Red Deer", "Alberta");
+
+        // edit city with information of newCity
+        cityList.editCity(city, newCity);
+
+        // count should remain the same
+        assertEquals(2, cityList.countCities());
+        // check if city was updated
+        assertTrue(cityList.hasCity(new City("Red Deer", "Alberta")));
+        // check old city is not in list anymore
+        assertFalse(cityList.hasCity(new City("Ottawa", "Ontario")));
+    }
+
+
 }
